@@ -1,0 +1,6 @@
+
+SELECT *
+WHERE {
+  <http://dbpedia.org/resource/Tokyo> ?predicate ?object .
+ }
+LIMIT 100

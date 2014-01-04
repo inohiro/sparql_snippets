@@ -1,0 +1,18 @@
+PREFIX dbpedia: <http://dbpedia.org/resource/>
+PREFIX dbpprop: <http://dbpedia.org/property/>
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+SELECT DISTINCT *
+WHERE {
+  ?person a dbpedia-owl:Person .
+  ?person dbpprop:prizes dbpedia:Nobel_Prize_in_Physics .
+  ?person foaf:name ?name .
+  ?person dbpedia-owl:almaMater ?universiy .
+  ?university foaf:name ?u_name .
+  ?person dbpedia-owl:birthPlace ?birthPlace .
+
+  FILTER (lang(?name) = "en" ).
+  FILTER (lang(?u_name) = "en" )
+}
+LIMIT 1000
